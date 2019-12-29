@@ -12,11 +12,13 @@ import CoreData
 class WordsViewController: UIViewController {
 
     var group: Group!
-    
+    var words: [Word]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.words = CoreDataHelper.shared.readWord(group: self.group)
+        
     }
     
     func setup(group: Group) {

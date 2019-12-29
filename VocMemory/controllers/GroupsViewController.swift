@@ -29,6 +29,11 @@ class GroupsViewController: UIViewController {
         self.groupsTV.reloadData()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        ToastUtils.shared.hideMessage(view: self)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? WordsViewController {
             let group = sender as? Group
@@ -44,7 +49,7 @@ class GroupsViewController: UIViewController {
         }
         
         let addAction = UIAlertAction(title: "Add", style: .default) { alert in
-            if let tf = addGroupPopUp.textFields?.first, let text = tf.text {
+            if let tf = addGroupPopUp.textFields?.first, let text = tf.text?.trimmingCharacters(in: .whitespacesAndNewlines) {
                 if text != "" {
                     CoreDataHelper.shared.createGroup(name: text) { (result, error) in
                         if error != nil {
@@ -59,7 +64,7 @@ class GroupsViewController: UIViewController {
                     }
                     
                 } else {
-                    ToastUtils.shared.displayMessage(view: self, message: "Error occured during creation of group", duration: 3.0, position: .bottom)
+                    ToastUtils.shared.displayMessage(view: self, message: "Please to give a title for the group", duration: 3.0, position: .bottom)
                 }
             }
         }
