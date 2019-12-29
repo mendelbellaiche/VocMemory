@@ -1,0 +1,6 @@
+framework module Pods_VocMemory {
+  umbrella header "Pods-VocMemory-umbrella.h"
+
+  export *
+  module * { export * }
+}
