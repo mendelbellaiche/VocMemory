@@ -9,6 +9,8 @@
 import UIKit
 import Toast_Swift
 
+let GROUP_SEGUE_ID = "groupSegue"
+
 class GroupsViewController: UIViewController {
 
     var groups: [Group]?
@@ -27,6 +29,13 @@ class GroupsViewController: UIViewController {
         self.groupsTV.reloadData()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? WordsViewController {
+            let group = sender as? Group
+            destination.setup(group: group!)
+        }
+    }
+    
     @IBAction func addGroupTapped(_ sender: UIButton) {
         let addGroupPopUp = UIAlertController(title: "Add a new group", message: "What the title of the group ?", preferredStyle: .alert)
         
@@ -96,4 +105,9 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.performSegue(withIdentifier: GROUP_SEGUE_ID, sender: self.groups![indexPath.row])
+        
+    }
 }

@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import CoreData
 
 class WordsViewController: UIViewController {
 
+    var group: Group!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
     
+    func setup(group: Group) {
+        self.group = group
+        self.navigationItem.title = self.group.title
+    }
 
     /*
     // MARK: - Navigation
