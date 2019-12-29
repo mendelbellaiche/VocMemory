@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol WordAddDelegate : class {
+    func addArray(with word: Word)
+}
+
 class AddWordViewController: UIViewController {
 
     @IBOutlet weak var contentTV: UITextView!
@@ -20,6 +24,8 @@ class AddWordViewController: UIViewController {
     
     var group: Group!
     
+    weak var delegate: WordAddDelegate?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -32,7 +38,9 @@ class AddWordViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
-        CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText) { (word, error) in }
+        CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText) { (word, error) in
+            self.delegate?.addArray(with: word)
+        }
         
         self.navigationController?.popViewController(animated: true)
     }
