@@ -24,4 +24,8 @@ class ToastUtils {
         view.view.makeToast(message, duration: duration, position: position, style: style)
     }
     
+    func hideMessage(view: UIViewController) {
+        view.view.hideToast()
+    }
+    
 }
