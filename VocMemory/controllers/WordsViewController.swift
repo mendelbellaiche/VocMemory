@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let ADD_WORD_SEGUE_ID = "addWordSegue"
+
 class WordsViewController: UIViewController {
 
     var group: Group!
@@ -19,6 +21,11 @@ class WordsViewController: UIViewController {
         
         self.words = CoreDataHelper.shared.readWord(group: self.group)
         
+        for word in self.words! {
+            print(word.front)
+            print(word.back)
+            
+        }
     }
     
     func setup(group: Group) {
@@ -26,14 +33,17 @@ class WordsViewController: UIViewController {
         self.navigationItem.title = self.group.title
     }
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let vc = segue.destination as? AddWordViewController {
+            vc.group = sender as? Group
+        }
     }
-    */
+    
 
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: ADD_WORD_SEGUE_ID, sender: self.group)
+    }
 }

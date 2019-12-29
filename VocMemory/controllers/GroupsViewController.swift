@@ -59,12 +59,12 @@ class GroupsViewController: UIViewController {
                         self.groupsTV.reloadData()
                         
                         DispatchQueue.main.async {
-                            ToastUtils.shared.displayMessage(view: self, message: "Group added from the list", duration: 3.0, position: .bottom)
+                            ToastUtils.shared.displayMessage(view: self, message: "Group added from the list", duration: 3.0, position: .center)
                         }
                     }
                     
                 } else {
-                    ToastUtils.shared.displayMessage(view: self, message: "Please to give a title for the group", duration: 3.0, position: .bottom)
+                    ToastUtils.shared.displayMessage(view: self, message: "Please to give a title for the group", duration: 3.0, position: .center)
                 }
             }
         }
@@ -104,7 +104,7 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 
                 DispatchQueue.main.async {
-                    ToastUtils.shared.displayMessage(view: self, message: "Group deleted from the list", duration: 3.0, position: .bottom)
+                    ToastUtils.shared.displayMessage(view: self, message: "Group deleted from the list", duration: 3.0, position: .center)
                 }
             }
         }

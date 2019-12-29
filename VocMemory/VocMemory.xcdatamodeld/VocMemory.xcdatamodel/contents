@@ -8,10 +8,11 @@
         <attribute name="back" optional="YES" attributeType="String"/>
         <attribute name="favoris" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="front" optional="YES" attributeType="String"/>
+        <attribute name="lastDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Group" inverseName="words" inverseEntity="Group"/>
     </entity>
     <elements>
         <element name="Group" positionX="-63" positionY="-18" width="128" height="73"/>
-        <element name="Word" positionX="158.2578125" positionY="-34.1875" width="128" height="103"/>
+        <element name="Word" positionX="158.2578125" positionY="-34.1875" width="128" height="118"/>
     </elements>
 </model>

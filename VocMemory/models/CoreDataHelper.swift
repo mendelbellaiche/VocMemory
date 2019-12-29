@@ -71,6 +71,7 @@ class CoreDataHelper {
         word.front = front
         word.back = back
         word.favoris = false
+        word.lastDate = nil
         
         group.addToWords(word)
         
