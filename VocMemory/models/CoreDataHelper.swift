@@ -15,9 +15,7 @@ class CoreDataHelper {
     static let shared = CoreDataHelper()
     
     private init() {}
-    
-    //TODO: - create group
-    
+        
     func createGroup(name: String, completionHandler: (_ result: Group, _ error: Error?) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -32,9 +30,7 @@ class CoreDataHelper {
             print("Could not save. \(error), \(error.userInfo)")
         }
     }
-    
-    //TODO: - read group
-    
+        
     func readGroup() -> [Group]? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -49,19 +45,13 @@ class CoreDataHelper {
         return nil
     }
     
-    //TODO: - update group
-    
+    // #TODO: Incomplete implementation update group
     func updateGroup() {
-        
     }
-    
-    //TODO: - delete group
     
     func deleteGroup(group: Group, completionHandler: (_ error: Error?) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
-        // let fetchRequest = NSFetchRequest<Group>(entityName: "Group")
-        // fetchRequest.predicate = NSPredicate(format: "title = %@", name)
         
         do {
             managedContext.delete(group)
@@ -70,31 +60,68 @@ class CoreDataHelper {
         } catch {
             print(error.localizedDescription)
         }
+    }
+    
+    func createWord(group: Group, front: String, back: String, completionHandler: (_ result: Word, _ error: Error?) -> Void) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Word", in: managedContext)!
+        let word = NSManagedObject(entity: entity, insertInto: managedContext) as! Word
+        word.front = front
+        word.back = back
+        word.favoris = false
+        
+        group.addToWords(word)
+        
+        do {
+            try managedContext.save()
+            completionHandler(word, nil)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
         
     }
     
-    //TODO: - create word
-    
-    func createWord() {
+    func readWord(group: Group) -> [Word]? {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Group>(entityName: "Group")
+        fetchRequest.predicate = NSPredicate(format: "title = %@", group.title!)
         
+        do {
+            let fetchedResults = try managedContext.fetch(fetchRequest)
+            let words = fetchedResults.first?.words?.allObjects as? [Word]
+            return words
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        /*do {
+            return try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }*/
+        
+        return nil
     }
     
-    //TODO: - read word
-    
-    func readWord() {
-        
-    }
-    
-    //TODO: - update word
-    
+    // #TODO: Incomplete implementation update word
     func updateWord() {
-        
     }
     
-    //TODO: - delete word
-    
-    func deleteWord() {
+    func deleteWord(word: Word, completionHandler: (_ error: Error?) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
         
+        do {
+            managedContext.delete(word)
+            try managedContext.save()
+            completionHandler(nil)
+        } catch {
+            print(error.localizedDescription)
+        }
     }
     
 }
