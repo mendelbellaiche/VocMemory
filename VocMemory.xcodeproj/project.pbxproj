@@ -17,6 +17,7 @@
 		6F39AEBA23B822D000E87663 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F39AEB923B822D000E87663 /* GroupsViewController.swift */; };
 		6F39AEBC23B8271C00E87663 /* ToastUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F39AEBB23B8271C00E87663 /* ToastUtils.swift */; };
 		6F39AEC023B82A2000E87663 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F39AEBF23B82A2000E87663 /* CoreDataHelper.swift */; };
+		6F39AEC223B835EF00E87663 /* WordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F39AEC123B835EF00E87663 /* WordsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		6F39AEB923B822D000E87663 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		6F39AEBB23B8271C00E87663 /* ToastUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastUtils.swift; sourceTree = "<group>"; };
 		6F39AEBF23B82A2000E87663 /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		6F39AEC123B835EF00E87663 /* WordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordsViewController.swift; sourceTree = "<group>"; };
 		D3D2B7C785828316E2CB051E /* Pods-VocMemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VocMemory.debug.xcconfig"; path = "Target Support Files/Pods-VocMemory/Pods-VocMemory.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				6F39AEB923B822D000E87663 /* GroupsViewController.swift */,
+				6F39AEC123B835EF00E87663 /* WordsViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				6F39AEBA23B822D000E87663 /* GroupsViewController.swift in Sources */,
 				6F39AEA023B8206900E87663 /* AppDelegate.swift in Sources */,
 				6F39AEBC23B8271C00E87663 /* ToastUtils.swift in Sources */,
+				6F39AEC223B835EF00E87663 /* WordsViewController.swift in Sources */,
 				6F39AEA223B8206900E87663 /* SceneDelegate.swift in Sources */,
 				6F39AEAA23B8206900E87663 /* VocMemory.xcdatamodeld in Sources */,
 			);

@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Words View Controller-->
         <scene sceneID="jM0-qc-bbl">
             <objects>
-                <viewController id="Kq0-3A-KVP" sceneMemberID="viewController">
+                <viewController id="Kq0-3A-KVP" customClass="WordsViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qKW-PC-HPl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
