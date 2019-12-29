@@ -34,7 +34,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="8ZD-Vw-FaI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" id="8ZD-Vw-FaI">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ZD-Vw-FaI" id="0vQ-cS-jU3">
@@ -60,7 +60,7 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="3pp-a9-Cen"/>
                     <connections>
                         <outlet property="groupsTV" destination="2Iu-Vh-eom" id="j5d-6x-olT"/>
-                        <segue destination="Kq0-3A-KVP" kind="show" id="fcO-2n-XEB"/>
+                        <segue destination="Kq0-3A-KVP" kind="show" identifier="groupSegue" id="fcO-2n-XEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
