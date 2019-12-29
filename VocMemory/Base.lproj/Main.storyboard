@@ -60,11 +60,30 @@
                     <navigationItem key="navigationItem" title="Dashboard" id="3pp-a9-Cen"/>
                     <connections>
                         <outlet property="groupsTV" destination="2Iu-Vh-eom" id="j5d-6x-olT"/>
+                        <segue destination="Kq0-3A-KVP" kind="show" id="fcO-2n-XEB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jM0-qc-bbl">
+            <objects>
+                <viewController id="Kq0-3A-KVP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qKW-PC-HPl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="brQ-Nh-HNJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1er-AX-a3T">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Awl-rz-IjP"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rxg-AY-HzR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1913" y="130"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0zi-bC-QHX">
