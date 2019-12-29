@@ -19,8 +19,9 @@ class AddWordViewController: UIViewController {
     
     var front:Bool = true
     
-    var frontText: String = "front"
-    var backText: String = "back"
+    var frontText: String = ""
+    var backText: String = ""
+    var favori: Bool = false
     
     var group: Group!
     
@@ -28,6 +29,13 @@ class AddWordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.contentTV.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.contentTV.becomeFirstResponder()
     }
 
     @IBAction func changeValue(_ sender: UISegmentedControl) {
@@ -38,10 +46,28 @@ class AddWordViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
         
-        CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText) { (word, error) in
+        /*CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText) { (word, error) in
             self.delegate?.addArray(with: word)
-        }
+        }*/
         
+        CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText, favori: self.favori) { (word, error) in
+            
+            if error != nil { return }
+            self.delegate?.addArray(with: word)
+            
+        }
         self.navigationController?.popViewController(animated: true)
     }
+}
+
+extension AddWordViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if self.front {
+            self.frontText = textView.text
+        } else {
+            self.backText = textView.text
+        }
+    }
+    
 }

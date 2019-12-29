@@ -62,7 +62,7 @@ class CoreDataHelper {
         }
     }
     
-    func createWord(group: Group, front: String, back: String, completionHandler: (_ result: Word, _ error: Error?) -> Void) {
+    func createWord(group: Group, front: String, back: String, favori: Bool, completionHandler: (_ result: Word, _ error: Error?) -> Void) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -70,8 +70,8 @@ class CoreDataHelper {
         let word = NSManagedObject(entity: entity, insertInto: managedContext) as! Word
         word.front = front
         word.back = back
-        word.favoris = false
-        word.lastDate = nil
+        word.favoris = favori
+        word.lastDate = Date()
         
         group.addToWords(word)
         

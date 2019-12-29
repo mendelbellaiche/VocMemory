@@ -18,12 +18,11 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZg-Xf-I5h" customClass="MyButton" customModule="VocMemory" customModuleProvider="target">
                                 <rect key="frame" x="16" y="806" width="382" height="40"/>
-                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="n3e-SU-Sd6"/>
                                 </constraints>
                                 <state key="normal" title="Add a group">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -33,7 +32,7 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -42,10 +41,10 @@
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="2" height="2"/>
+                                        <size key="value" width="1" height="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                                        <real key="value" value="2"/>
+                                        <real key="value" value="4"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -163,11 +162,14 @@
                         <viewLayoutGuide key="safeArea" id="brQ-Nh-HNJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="1er-AX-a3T">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Awl-rz-IjP">
-                            <connections>
-                                <action selector="addButtonTapped:" destination="Kq0-3A-KVP" id="fQa-QV-8du"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="Awl-rz-IjP">
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="Kq0-3A-KVP" id="fQa-QV-8du"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="play" catalog="system" id="zBX-tJ-oze"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="wordsCollectionView" destination="vAu-27-dXh" id="DK8-2d-dnF"/>
@@ -196,12 +198,11 @@
                                     <action selector="changeValue:" destination="t9E-GO-cKn" eventType="valueChanged" id="OYC-d5-7LP"/>
                                 </connections>
                             </segmentedControl>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QnB-Ke-fZh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QnB-Ke-fZh">
                                 <rect key="frame" x="20" y="159" width="374" height="683"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -218,11 +219,14 @@
                         <viewLayoutGuide key="safeArea" id="QBD-Et-d15"/>
                     </view>
                     <navigationItem key="navigationItem" title="New Card" id="lHO-Zf-LNC">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="L4Y-La-968">
-                            <connections>
-                                <action selector="saveButtonTapped:" destination="t9E-GO-cKn" id="a9b-wA-l3h"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="L4Y-La-968">
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="t9E-GO-cKn" id="a9b-wA-l3h"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="bookmark" catalog="system" id="hAu-Hx-QjT"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="contentTV" destination="QnB-Ke-fZh" id="GGU-yX-IRR"/>
@@ -251,4 +255,8 @@
             <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bookmark" catalog="system" width="56" height="64"/>
+        <image name="play" catalog="system" width="60" height="64"/>
+    </resources>
 </document>
