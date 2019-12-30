@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 let ADD_WORD_SEGUE_ID = "addWordSegue"
+let EDIT_WORD_SEGUE_ID = "editWordSegue"
 let WORD_CELL = "wordCell"
 
 class WordsViewController: UIViewController {
@@ -38,10 +39,19 @@ class WordsViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? AddWordViewController {
-            vc.group = sender as? Group
-            vc.delegate = self
+        if segue.identifier == ADD_WORD_SEGUE_ID {
+            if let vc = segue.destination as? AddWordViewController {
+                vc.group = sender as? Group
+                vc.delegate = self
+            }
         }
+        if segue.identifier == EDIT_WORD_SEGUE_ID {
+            if let vc = segue.destination as? EditWordViewController {
+                vc.word = sender as? Word
+                vc.delegate = self
+            }
+        }
+        
     }
     
 
@@ -68,9 +78,20 @@ extension WordsViewController: UICollectionViewDelegate, UICollectionViewDataSou
         return CGSize(width: 170, height: 170)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let word = self.words![indexPath.row]
+        self.performSegue(withIdentifier: EDIT_WORD_SEGUE_ID, sender: word)
+    }
+    
 }
 
-extension WordsViewController: WordAddDelegate {
+extension WordsViewController: WordDelegate {
+    
+    func removeArray(with word: Word) {
+        self.words = self.words?.filter() { $0 !== word }
+        self.wordsCollectionView.reloadData()
+    }
+    
     
     func addArray(with word: Word) {
         self.words?.append(word)

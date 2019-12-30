@@ -9,8 +9,11 @@
 import UIKit
 import CoreData
 
-protocol WordAddDelegate : class {
+protocol WordDelegate : class {
+    
     func addArray(with word: Word)
+    func removeArray(with word: Word)
+    
 }
 
 class AddWordViewController: UIViewController {
@@ -26,7 +29,7 @@ class AddWordViewController: UIViewController {
     
     var group: Group!
     
-    weak var delegate: WordAddDelegate?
+    weak var delegate: WordDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +61,6 @@ class AddWordViewController: UIViewController {
     @IBAction func favoriButtonTapped(_ sender: UIBarButtonItem) {
         
         self.favori = !self.favori
-        
-        // self.favoriButton.image = (self.favori) ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
         
         if self.favori {
             self.favoriButton.image = UIImage(systemName: "bookmark.fill")

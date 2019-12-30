@@ -175,11 +175,56 @@
                     <connections>
                         <outlet property="wordsCollectionView" destination="vAu-27-dXh" id="DK8-2d-dnF"/>
                         <segue destination="t9E-GO-cKn" kind="show" identifier="addWordSegue" id="MLd-3T-6bO"/>
+                        <segue destination="yfd-hW-iRN" kind="show" identifier="editWordSegue" id="pC0-TA-t3T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxg-AY-HzR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1911.594202898551" y="129.91071428571428"/>
+        </scene>
+        <!--Edit Word View Controller-->
+        <scene sceneID="oxm-wN-B3g">
+            <objects>
+                <viewController id="yfd-hW-iRN" customClass="EditWordViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dux-Jg-6xh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qJF-S7-Ozc">
+                                <rect key="frame" x="20" y="108" width="374" height="32"/>
+                                <segments>
+                                    <segment title="Front"/>
+                                    <segment title="Back"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="qJF-S7-Ozc" firstAttribute="top" secondItem="dkh-Rx-xlJ" secondAttribute="top" constant="20" id="Rfz-Uo-p7c"/>
+                            <constraint firstItem="qJF-S7-Ozc" firstAttribute="leading" secondItem="dkh-Rx-xlJ" secondAttribute="leading" constant="20" id="liZ-fU-ugV"/>
+                            <constraint firstItem="dkh-Rx-xlJ" firstAttribute="trailing" secondItem="qJF-S7-Ozc" secondAttribute="trailing" constant="20" id="ln4-Qk-OPn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dkh-Rx-xlJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J5u-Mj-aSY">
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="WWe-CC-xIn">
+                                <connections>
+                                    <action selector="saveButtonTapped:" destination="yfd-hW-iRN" id="N0b-UK-f3k"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="bookmark" catalog="system" id="1ah-cg-ORe"/>
+                            <barButtonItem systemItem="trash" id="9TI-XR-iAA">
+                                <connections>
+                                    <action selector="deleteButtonTapped:" destination="yfd-hW-iRN" id="G9E-86-4TI"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-ha-YtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1912" y="865"/>
         </scene>
         <!--New Card-->
         <scene sceneID="GTU-KC-722">
