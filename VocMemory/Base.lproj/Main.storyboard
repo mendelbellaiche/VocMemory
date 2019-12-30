@@ -196,11 +196,26 @@
                                     <segment title="Front"/>
                                     <segment title="Back"/>
                                 </segments>
+                                <connections>
+                                    <action selector="changeValue:" destination="yfd-hW-iRN" eventType="valueChanged" id="LtJ-My-Xq6"/>
+                                </connections>
                             </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UUT-Sq-NXY">
+                                <rect key="frame" x="20" y="159" width="374" height="683"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="UUT-Sq-NXY" firstAttribute="leading" secondItem="dkh-Rx-xlJ" secondAttribute="leading" constant="20" id="8p9-Yr-DAo"/>
+                            <constraint firstItem="dkh-Rx-xlJ" firstAttribute="trailing" secondItem="UUT-Sq-NXY" secondAttribute="trailing" constant="20" id="BCd-Gt-3us"/>
+                            <constraint firstItem="UUT-Sq-NXY" firstAttribute="top" secondItem="qJF-S7-Ozc" secondAttribute="bottom" constant="20" id="Q4n-m5-ajt"/>
                             <constraint firstItem="qJF-S7-Ozc" firstAttribute="top" secondItem="dkh-Rx-xlJ" secondAttribute="top" constant="20" id="Rfz-Uo-p7c"/>
+                            <constraint firstItem="dkh-Rx-xlJ" firstAttribute="bottom" secondItem="UUT-Sq-NXY" secondAttribute="bottom" constant="20" id="iBN-R1-RSQ"/>
                             <constraint firstItem="qJF-S7-Ozc" firstAttribute="leading" secondItem="dkh-Rx-xlJ" secondAttribute="leading" constant="20" id="liZ-fU-ugV"/>
                             <constraint firstItem="dkh-Rx-xlJ" firstAttribute="trailing" secondItem="qJF-S7-Ozc" secondAttribute="trailing" constant="20" id="ln4-Qk-OPn"/>
                         </constraints>
@@ -213,7 +228,11 @@
                                     <action selector="saveButtonTapped:" destination="yfd-hW-iRN" id="N0b-UK-f3k"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="bookmark" catalog="system" id="1ah-cg-ORe"/>
+                            <barButtonItem image="bookmark" catalog="system" id="1ah-cg-ORe">
+                                <connections>
+                                    <action selector="favoriButtonTapped:" destination="yfd-hW-iRN" id="mGH-g9-y9O"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem systemItem="trash" id="9TI-XR-iAA">
                                 <connections>
                                     <action selector="deleteButtonTapped:" destination="yfd-hW-iRN" id="G9E-86-4TI"/>
@@ -221,6 +240,10 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="contentTV" destination="UUT-Sq-NXY" id="NbU-bO-q96"/>
+                        <outlet property="favoriButton" destination="1ah-cg-ORe" id="Not-N1-u4a"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-ha-YtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

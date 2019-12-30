@@ -21,11 +21,11 @@ class AddWordViewController: UIViewController {
     @IBOutlet weak var favoriButton: UIBarButtonItem!
     @IBOutlet weak var contentTV: UITextView!
     
-    var front:Bool = true
+    var front: Bool = true
     
     var frontText: String = ""
     var backText: String = ""
-    var favori: Bool = false
+    var favoris: Bool = false
     
     var group: Group!
     
@@ -49,7 +49,7 @@ class AddWordViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText, favori: self.favori) { (word, error) in
+        CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText, favori: self.favoris) { (word, error) in
             
             if error != nil { return }
             self.delegate?.addArray(with: word)
@@ -60,9 +60,9 @@ class AddWordViewController: UIViewController {
     
     @IBAction func favoriButtonTapped(_ sender: UIBarButtonItem) {
         
-        self.favori = !self.favori
+        self.favoris = !self.favoris
         
-        if self.favori {
+        if self.favoris {
             self.favoriButton.image = UIImage(systemName: "bookmark.fill")
         } else {
             self.favoriButton.image = UIImage(systemName: "bookmark")
