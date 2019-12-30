@@ -24,7 +24,7 @@ class WordCollectionViewCell: UICollectionViewCell {
         updateUI()
         
         self.contentLabel.text = content
-        self.favoriImageView.image = favori ? UIImage(systemName: "bookmark") : nil
+        self.favoriImageView.image = favori ? UIImage(systemName: "bookmark.fill") : nil
     }
     
     func updateUI() {

@@ -26,7 +26,7 @@
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
+                                        <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
@@ -38,10 +38,10 @@
                                         <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
-                                        <real key="value" value="1"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
-                                        <size key="value" width="1" height="1"/>
+                                        <size key="value" width="0.0" height="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                         <real key="value" value="4"/>
@@ -130,6 +130,7 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqA-G8-0aX">
                                                     <rect key="frame" x="105" y="105" width="25" height="25"/>
+                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="Bon-rd-SZM"/>
                                                         <constraint firstAttribute="width" constant="25" id="GFg-Vt-jJO"/>
@@ -225,11 +226,16 @@
                                     <action selector="saveButtonTapped:" destination="t9E-GO-cKn" id="a9b-wA-l3h"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="bookmark" catalog="system" id="hAu-Hx-QjT"/>
+                            <barButtonItem image="bookmark" catalog="system" id="hAu-Hx-QjT">
+                                <connections>
+                                    <action selector="favoriButtonTapped:" destination="t9E-GO-cKn" id="2mM-QV-WlU"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="contentTV" destination="QnB-Ke-fZh" id="GGU-yX-IRR"/>
+                        <outlet property="favoriButton" destination="hAu-Hx-QjT" id="d2F-Lh-X9E"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JW-Fc-Tg6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

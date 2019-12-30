@@ -15,6 +15,7 @@ protocol WordAddDelegate : class {
 
 class AddWordViewController: UIViewController {
 
+    @IBOutlet weak var favoriButton: UIBarButtonItem!
     @IBOutlet weak var contentTV: UITextView!
     
     var front:Bool = true
@@ -45,11 +46,6 @@ class AddWordViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        
-        /*CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText) { (word, error) in
-            self.delegate?.addArray(with: word)
-        }*/
-        
         CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText, favori: self.favori) { (word, error) in
             
             if error != nil { return }
@@ -58,6 +54,21 @@ class AddWordViewController: UIViewController {
         }
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func favoriButtonTapped(_ sender: UIBarButtonItem) {
+        
+        self.favori = !self.favori
+        
+        // self.favoriButton.image = (self.favori) ? UIImage(systemName: "bookmark.fill") : UIImage(systemName: "bookmark")
+        
+        if self.favori {
+            self.favoriButton.image = UIImage(systemName: "bookmark.fill")
+        } else {
+            self.favoriButton.image = UIImage(systemName: "bookmark")
+        }
+        
+    }
+    
 }
 
 extension AddWordViewController: UITextViewDelegate {
