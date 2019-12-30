@@ -86,7 +86,7 @@ extension WordsViewController: UICollectionViewDelegate, UICollectionViewDataSou
 }
 
 extension WordsViewController: WordDelegate {
-    
+
     func removeArray(with word: Word) {
         self.words = self.words?.filter() { $0 !== word }
         self.wordsCollectionView.reloadData()
@@ -95,6 +95,16 @@ extension WordsViewController: WordDelegate {
     
     func addArray(with word: Word) {
         self.words?.append(word)
+        self.wordsCollectionView.reloadData()
+    }
+    
+    func updateArray(with id: UUID, front: String, back: String, favori: Bool) {
+        let words = self.words?.filter() { $0.id == id }
+        if let word = words?.first {
+            word.front = front
+            word.back = back
+            word.favoris = favori
+        }
         self.wordsCollectionView.reloadData()
     }
     

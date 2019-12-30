@@ -13,7 +13,7 @@ protocol WordDelegate : class {
     
     func addArray(with word: Word)
     func removeArray(with word: Word)
-    
+    func updateArray(with id: UUID, front: String, back: String, favori: Bool)
 }
 
 class AddWordViewController: UIViewController {
@@ -49,7 +49,7 @@ class AddWordViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        CoreDataHelper.shared.createWord(group: group, front: self.frontText, back: self.backText, favori: self.favoris) { (word, error) in
+        CoreDataHelper.shared.createWord(group: group, id: UUID(), front: self.frontText, back: self.backText, favori: self.favoris) { (word, error) in
             
             if error != nil { return }
             self.delegate?.addArray(with: word)

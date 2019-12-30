@@ -46,8 +46,18 @@ class EditWordViewController: UIViewController {
         self.contentTV.becomeFirstResponder()
     }
     
-    // #TODO: Incomplete implementation update word (call CoreDataHelper update method and pop view)
-    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {}
+    @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
+        CoreDataHelper.shared.updateWord(id: word.id!, front: self.frontText, back: self.backText, favori: self.favoris) { (word, error) in
+            
+            ToastUtils.shared.displayMessage(view: self, message: "Word updated", duration: 3.0, position: .center)
+            
+            self.word.front = self.frontText
+            self.word.back = self.backText
+            self.word.favoris = self.favoris
+            self.delegate?.updateArray(with: self.word.id!, front: self.frontText, back: self.backText, favori: self.favoris)
+            self.navigationController?.popViewController(animated: true)
+        }
+    }
     
     @IBAction func favoriButtonTapped(_ sender: UIBarButtonItem) {
         self.favoris = !self.favoris

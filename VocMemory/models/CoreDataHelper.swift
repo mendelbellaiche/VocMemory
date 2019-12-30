@@ -62,12 +62,13 @@ class CoreDataHelper {
         }
     }
     
-    func createWord(group: Group, front: String, back: String, favori: Bool, completionHandler: (_ result: Word, _ error: Error?) -> Void) {
+    func createWord(group: Group, id: UUID, front: String, back: String, favori: Bool, completionHandler: (_ result: Word, _ error: Error?) -> Void) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "Word", in: managedContext)!
         let word = NSManagedObject(entity: entity, insertInto: managedContext) as! Word
+        word.id = id
         word.front = front
         word.back = back
         word.favoris = favori
@@ -106,7 +107,26 @@ class CoreDataHelper {
     }
     
     // #TODO: Incomplete implementation update word
-    func updateWord() {
+    func updateWord(id: UUID, front: String, back: String, favori: Bool, completionHandler: (_ word: Word, _ error: Error?) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Word>(entityName: "Word")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
+        
+        do {
+            let fetchedResults = try managedContext.fetch(fetchRequest)
+            if let first = fetchedResults.first {
+                first.front = front
+                first.back = back
+                first.favoris = favori
+                first.lastDate = Date()
+                
+                try managedContext.save()
+                completionHandler(first, nil)
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
     }
     
     func deleteWord(word: Word, completionHandler: (_ error: Error?) -> Void) {
