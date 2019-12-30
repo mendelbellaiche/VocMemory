@@ -90,20 +90,17 @@ class CoreDataHelper {
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Group>(entityName: "Group")
         fetchRequest.predicate = NSPredicate(format: "title = %@", group.title!)
+        let sortByDate = NSSortDescriptor(key: "lastDate", ascending: true)
         
         do {
             let fetchedResults = try managedContext.fetch(fetchRequest)
-            let words = fetchedResults.first?.words?.allObjects as? [Word]
-            return words
+            let words = fetchedResults.first?.words
+            let wordsResults = words!.sortedArray(using: [sortByDate]) as? [Word]
+            
+            return wordsResults
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-        
-        /*do {
-            return try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }*/
         
         return nil
     }

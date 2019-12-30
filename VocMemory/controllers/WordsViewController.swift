@@ -27,10 +27,6 @@ class WordsViewController: UIViewController {
         self.wordsCollectionView.delegate = self
         self.wordsCollectionView.dataSource = self
         
-        /*for word in self.words! {
-            print(word.front)
-            print(word.back)
-        }*/
     }
     
     func setup(group: Group) {
