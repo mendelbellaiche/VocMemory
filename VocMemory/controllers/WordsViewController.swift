@@ -11,6 +11,7 @@ import CoreData
 
 let ADD_WORD_SEGUE_ID = "addWordSegue"
 let EDIT_WORD_SEGUE_ID = "editWordSegue"
+let TEST_WORD_SEGUE_ID = "testWordSegue"
 let WORD_CELL = "wordCell"
 
 class WordsViewController: UIViewController {
@@ -20,9 +21,10 @@ class WordsViewController: UIViewController {
     
     @IBOutlet weak var wordsCollectionView: UICollectionView!
     
+    // MARK: - Lifecyle methods and setup functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.words = CoreDataHelper.shared.readWord(id: self.group.id!)
         
@@ -52,14 +54,28 @@ class WordsViewController: UIViewController {
                 vc.delegate = self
             }
         }
+        if segue.identifier == TEST_WORD_SEGUE_ID {
+            if let vc = segue.destination as? TestWordViewController {
+                vc.group = sender as? Group
+                //vc.delegate = self
+            }
+        }
         
     }
     
+    // MARK: - Buttons Action methods
 
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         self.performSegue(withIdentifier: ADD_WORD_SEGUE_ID, sender: self.group)
     }
+    
+    @IBAction func testButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: TEST_WORD_SEGUE_ID, sender: self.group)
+    }
+    
 }
+
+// MARK: - Collection protocol methods
 
 extension WordsViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,6 +101,8 @@ extension WordsViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
 }
+
+// MARK: - WordDelegate protocol methods
 
 extension WordsViewController: WordDelegate {
 

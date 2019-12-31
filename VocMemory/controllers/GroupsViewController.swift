@@ -17,6 +17,8 @@ class GroupsViewController: UIViewController {
     
     @IBOutlet weak var groupsTV: UITableView!
     
+    // MARK: - Lifecyle methods and setup functions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.groupsTV.delegate = self
@@ -34,12 +36,16 @@ class GroupsViewController: UIViewController {
         ToastUtils.shared.hideMessage(view: self)
     }
     
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? WordsViewController {
             let group = sender as? Group
             destination.setup(group: group!)
         }
     }
+    
+    // MARK: - Buttons Action methods
     
     @IBAction func addGroupTapped(_ sender: UIButton) {
         let addGroupPopUp = UIAlertController(title: "Add a new group", message: "What the title of the group ?", preferredStyle: .alert)
@@ -76,6 +82,7 @@ class GroupsViewController: UIViewController {
     
 }
 
+// MARK: - TableView protocol methods
 
 extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
     

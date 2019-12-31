@@ -170,7 +170,7 @@
                             </barButtonItem>
                             <barButtonItem image="play" catalog="system" id="zBX-tJ-oze">
                                 <connections>
-                                    <segue destination="pnx-0j-92o" kind="show" id="O2G-LW-LBd"/>
+                                    <action selector="testButtonTapped:" destination="Kq0-3A-KVP" id="hsS-Gd-mry"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -179,6 +179,7 @@
                         <outlet property="wordsCollectionView" destination="vAu-27-dXh" id="DK8-2d-dnF"/>
                         <segue destination="t9E-GO-cKn" kind="show" identifier="addWordSegue" id="MLd-3T-6bO"/>
                         <segue destination="yfd-hW-iRN" kind="show" identifier="editWordSegue" id="pC0-TA-t3T"/>
+                        <segue destination="pnx-0j-92o" kind="show" identifier="testWordSegue" id="ggq-mt-uyE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rxg-AY-HzR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -250,12 +251,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-ha-YtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1912" y="865"/>
+            <point key="canvasLocation" x="2386" y="861"/>
         </scene>
-        <!--Test View Controller-->
+        <!--Test Word View Controller-->
         <scene sceneID="hYA-5W-Ktu">
             <objects>
-                <viewController id="pnx-0j-92o" customClass="TestViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pnx-0j-92o" customClass="TestWordViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyU-fh-yEf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -266,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O41-Ta-aH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2799" y="861"/>
+            <point key="canvasLocation" x="1561" y="852"/>
         </scene>
         <!--New Card-->
         <scene sceneID="GTU-KC-722">
