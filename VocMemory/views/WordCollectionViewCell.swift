@@ -29,7 +29,7 @@ class WordCollectionViewCell: UICollectionViewCell {
     
     func updateUI() {
         self.layer.borderColor = UIColor.systemBlue.cgColor
-        self.layer.borderWidth = 2
+        self.layer.borderWidth = 1
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
         self.layoutIfNeeded()

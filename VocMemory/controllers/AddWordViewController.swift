@@ -9,11 +9,19 @@
 import UIKit
 import CoreData
 
+enum Memorisation {
+    case fail
+    case hard
+    case medium
+    case easy
+    case neutral
+}
+
 protocol WordDelegate : class {
     
     func addArray(with word: Word)
     func removeArray(with word: Word)
-    func updateArray(with id: UUID, front: String, back: String, favori: Bool)
+    func updateArray(with id: UUID, front: String, back: String, favori: Bool, lastDate: Date)
 }
 
 class AddWordViewController: UIViewController {
@@ -35,6 +43,11 @@ class AddWordViewController: UIViewController {
         super.viewDidLoad()
         
         self.contentTV.delegate = self
+        print(Memorisation.easy)
+        print(Memorisation.medium)
+        print(Memorisation.hard)
+        print(Memorisation.fail)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

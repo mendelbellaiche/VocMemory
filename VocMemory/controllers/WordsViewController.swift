@@ -23,7 +23,8 @@ class WordsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.words = CoreDataHelper.shared.readWord(group: self.group)
+        
+        self.words = CoreDataHelper.shared.readWord(id: self.group.id!)
         
         self.wordsCollectionView.delegate = self
         self.wordsCollectionView.dataSource = self
@@ -98,14 +99,22 @@ extension WordsViewController: WordDelegate {
         self.wordsCollectionView.reloadData()
     }
     
-    func updateArray(with id: UUID, front: String, back: String, favori: Bool) {
+    func updateArray(with id: UUID, front: String, back: String, favori: Bool, lastDate: Date) {
+        
         let words = self.words?.filter() { $0.id == id }
         if let word = words?.first {
             word.front = front
             word.back = back
             word.favoris = favori
+            word.lastDate = lastDate
         }
+        
+        self.words?.sort(by: { (w1, w2) in
+            w1.lastDate!.compare(w2.lastDate!) == .orderedDescending
+        })
+        
         self.wordsCollectionView.reloadData()
+        
     }
     
 }

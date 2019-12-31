@@ -47,14 +47,16 @@ class EditWordViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        CoreDataHelper.shared.updateWord(id: word.id!, front: self.frontText, back: self.backText, favori: self.favoris) { (word, error) in
+        let ld = Date()
+        CoreDataHelper.shared.updateWord(id: word.id!, front: self.frontText, back: self.backText, favori: self.favoris, lastDate: ld) { (word, error) in
             
             ToastUtils.shared.displayMessage(view: self, message: "Word updated", duration: 3.0, position: .center)
             
             self.word.front = self.frontText
             self.word.back = self.backText
             self.word.favoris = self.favoris
-            self.delegate?.updateArray(with: self.word.id!, front: self.frontText, back: self.backText, favori: self.favoris)
+            self.word.lastDate = ld
+            self.delegate?.updateArray(with: self.word.id!, front: self.frontText, back: self.backText, favori: self.favoris, lastDate: ld)
             self.navigationController?.popViewController(animated: true)
         }
     }

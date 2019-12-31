@@ -22,7 +22,7 @@ class CoreDataHelper {
         let entity = NSEntityDescription.entity(forEntityName: "Group", in: managedContext)!
         let group = NSManagedObject(entity: entity, insertInto: managedContext) as! Group
         group.title = name
-        
+        group.id = UUID()
         do {
             try managedContext.save()
             completionHandler(group, nil)
@@ -72,6 +72,8 @@ class CoreDataHelper {
         word.front = front
         word.back = back
         word.favoris = favori
+        word.memorisation = -1
+        
         word.lastDate = Date()
         
         group.addToWords(word)
@@ -86,11 +88,11 @@ class CoreDataHelper {
         
     }
     
-    func readWord(group: Group) -> [Word]? {
+    func readWord(id: UUID) -> [Word]? {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return nil }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Group>(entityName: "Group")
-        fetchRequest.predicate = NSPredicate(format: "title = %@", group.title!)
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
         let sortByDate = NSSortDescriptor(key: "lastDate", ascending: true)
         
         do {
@@ -107,7 +109,7 @@ class CoreDataHelper {
     }
     
     // #TODO: Incomplete implementation update word
-    func updateWord(id: UUID, front: String, back: String, favori: Bool, completionHandler: (_ word: Word, _ error: Error?) -> Void) {
+    func updateWord(id: UUID, front: String, back: String, favori: Bool, lastDate: Date,  completionHandler: (_ word: Word, _ error: Error?) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Word>(entityName: "Word")
@@ -119,7 +121,7 @@ class CoreDataHelper {
                 first.front = front
                 first.back = back
                 first.favoris = favori
-                first.lastDate = Date()
+                first.lastDate = lastDate
                 
                 try managedContext.save()
                 completionHandler(first, nil)
@@ -127,6 +129,62 @@ class CoreDataHelper {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
+    }
+    
+    func updateMemorisationWord(id: UUID, memorisation: Memorisation, completionHandler: (_ error: Error?) -> Void) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Word>(entityName: "Word")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
+        
+        do {
+            let fetchedResults = try managedContext.fetch(fetchRequest)
+            if let first = fetchedResults.first {
+                
+                if memorisation == .fail {
+                    first.memorisation = 0
+                } else if memorisation == .hard {
+                    first.memorisation = 1
+                } else if memorisation == .medium {
+                    first.memorisation = 2
+                } else if memorisation == .easy {
+                    first.memorisation = 3
+                }
+                
+                try managedContext.save()
+                completionHandler(nil)
+                
+            }
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+    }
+    
+    func updateAllMemorisationWord(id: UUID, completionHandler: (_ error: Error?) -> Void) {
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Group>(entityName: "Group")
+        fetchRequest.predicate = NSPredicate(format: "id = %@", id as CVarArg)
+        
+        do {
+            let fetchedResults = try managedContext.fetch(fetchRequest)
+            let words = fetchedResults.first?.words?.allObjects as? [Word]
+            
+            if words?.filter({ $0.memorisation == 0 }).count == 0 {
+                for word in words! {
+                    word.memorisation -= 1
+                }
+            }
+            
+            try managedContext.save()
+            
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
     }
     
     func deleteWord(word: Word, completionHandler: (_ error: Error?) -> Void) {

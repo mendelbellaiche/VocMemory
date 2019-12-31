@@ -130,7 +130,6 @@
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqA-G8-0aX">
                                                     <rect key="frame" x="105" y="105" width="25" height="25"/>
-                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="Bon-rd-SZM"/>
                                                         <constraint firstAttribute="width" constant="25" id="GFg-Vt-jJO"/>
@@ -169,7 +168,11 @@
                                     <action selector="addButtonTapped:" destination="Kq0-3A-KVP" id="fQa-QV-8du"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="play" catalog="system" id="zBX-tJ-oze"/>
+                            <barButtonItem image="play" catalog="system" id="zBX-tJ-oze">
+                                <connections>
+                                    <segue destination="pnx-0j-92o" kind="show" id="O2G-LW-LBd"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -248,6 +251,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBv-ha-YtD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1912" y="865"/>
+        </scene>
+        <!--Test View Controller-->
+        <scene sceneID="hYA-5W-Ktu">
+            <objects>
+                <viewController id="pnx-0j-92o" customClass="TestViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zyU-fh-yEf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LzC-Lz-NBf"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="YqE-9i-uiC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O41-Ta-aH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2799" y="861"/>
         </scene>
         <!--New Card-->
         <scene sceneID="GTU-KC-722">

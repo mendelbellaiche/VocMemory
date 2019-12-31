@@ -22,6 +22,7 @@
 		6F48FFF023B8F19A001D3E36 /* AddWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F48FFEF23B8F19A001D3E36 /* AddWordViewController.swift */; };
 		6F48FFF423B8FD7D001D3E36 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F48FFF323B8FD7D001D3E36 /* WordCollectionViewCell.swift */; };
 		6F48FFF623BA19C9001D3E36 /* EditWordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F48FFF523BA19C9001D3E36 /* EditWordViewController.swift */; };
+		6F48FFF823BB716F001D3E36 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F48FFF723BB716F001D3E36 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		6F48FFEF23B8F19A001D3E36 /* AddWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWordViewController.swift; sourceTree = "<group>"; };
 		6F48FFF323B8FD7D001D3E36 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		6F48FFF523BA19C9001D3E36 /* EditWordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditWordViewController.swift; sourceTree = "<group>"; };
+		6F48FFF723BB716F001D3E36 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D3D2B7C785828316E2CB051E /* Pods-VocMemory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VocMemory.debug.xcconfig"; path = "Target Support Files/Pods-VocMemory/Pods-VocMemory.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				6F39AEC123B835EF00E87663 /* WordsViewController.swift */,
 				6F48FFEF23B8F19A001D3E36 /* AddWordViewController.swift */,
 				6F48FFF523BA19C9001D3E36 /* EditWordViewController.swift */,
+				6F48FFF723BB716F001D3E36 /* TestViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				6F48FFF423B8FD7D001D3E36 /* WordCollectionViewCell.swift in Sources */,
 				6F39AEC223B835EF00E87663 /* WordsViewController.swift in Sources */,
 				6F39AEA223B8206900E87663 /* SceneDelegate.swift in Sources */,
+				6F48FFF823BB716F001D3E36 /* TestViewController.swift in Sources */,
 				6F39AEAA23B8206900E87663 /* VocMemory.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
