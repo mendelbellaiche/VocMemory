@@ -43,11 +43,6 @@ class AddWordViewController: UIViewController {
         super.viewDidLoad()
         
         self.contentTV.delegate = self
-        print(Memorisation.easy)
-        print(Memorisation.medium)
-        print(Memorisation.hard)
-        print(Memorisation.fail)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,13 +57,19 @@ class AddWordViewController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIBarButtonItem) {
-        CoreDataHelper.shared.createWord(group: group, id: UUID(), front: self.frontText, back: self.backText, favori: self.favoris) { (word, error) in
-            
-            if error != nil { return }
-            self.delegate?.addArray(with: word)
-            
+        
+        if self.frontText != "" {
+            CoreDataHelper.shared.createWord(group: group, id: UUID(), front: self.frontText, back: self.backText, favori: self.favoris) { (word, error) in
+                
+                if error != nil { return }
+                self.delegate?.addArray(with: word)
+                
+            }
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            ToastUtils.shared.displayMessage(view: self, message: "The front text is mandatory !", duration: 3.0, position: .center)
         }
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
     @IBAction func favoriButtonTapped(_ sender: UIBarButtonItem) {
