@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qw9-vO-oT5">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="GroupsViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZg-Xf-I5h" customClass="MyButton" customModule="VocMemory" customModuleProvider="target">
-                                <rect key="frame" x="16" y="806" width="382" height="40"/>
+                                <rect key="frame" x="16" y="1290" width="992" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="n3e-SU-Sd6"/>
                                 </constraints>
@@ -52,19 +52,19 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2Iu-Vh-eom">
-                                <rect key="frame" x="0.0" y="88" width="414" height="702"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="1224"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="97x-JD-vsl">
-                                    <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="107.5" width="1024" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" id="8ZD-Vw-FaI">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="1024" height="51.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8ZD-Vw-FaI" id="0vQ-cS-jU3">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1024" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -83,10 +83,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Dashboard" id="3pp-a9-Cen"/>
+                    <navigationItem key="navigationItem" title="Dashboard" id="3pp-a9-Cen">
+                        <barButtonItem key="rightBarButtonItem" image="gear" catalog="system" landscapeImage="gear" largeContentSizeImage="gear" id="nKg-Xa-Wch">
+                            <connections>
+                                <action selector="paramsButtonTapped:" destination="BYZ-38-t0r" id="HVS-n6-TWr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="groupsTV" destination="2Iu-Vh-eom" id="j5d-6x-olT"/>
                         <segue destination="Kq0-3A-KVP" kind="show" identifier="groupSegue" id="fcO-2n-XEB"/>
+                        <segue destination="MhZ-13-sBh" kind="presentation" identifier="paramsSegue" id="aSh-3i-cX4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -98,11 +105,11 @@
             <objects>
                 <viewController id="Kq0-3A-KVP" customClass="WordsViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qKW-PC-HPl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vAu-27-dXh">
-                                <rect key="frame" x="10" y="98" width="394" height="754"/>
+                                <rect key="frame" x="10" y="60" width="1004" height="1276"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W7M-Ex-p2F">
                                     <size key="itemSize" width="132" height="91"/>
@@ -191,11 +198,11 @@
             <objects>
                 <viewController id="yfd-hW-iRN" customClass="EditWordViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dux-Jg-6xh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qJF-S7-Ozc">
-                                <rect key="frame" x="20" y="108" width="374" height="32"/>
+                                <rect key="frame" x="20" y="70" width="984" height="32"/>
                                 <segments>
                                     <segment title="Front"/>
                                     <segment title="Back"/>
@@ -205,7 +212,7 @@
                                 </connections>
                             </segmentedControl>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="UUT-Sq-NXY">
-                                <rect key="frame" x="20" y="159" width="374" height="683"/>
+                                <rect key="frame" x="20" y="121" width="984" height="1205"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -253,12 +260,170 @@
             </objects>
             <point key="canvasLocation" x="2386" y="861"/>
         </scene>
+        <!--Parameters View Controller-->
+        <scene sceneID="HuE-2U-crI">
+            <objects>
+                <viewController id="MhZ-13-sBh" customClass="ParametersViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WmZ-lH-wj4">
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="1006.9200564096436"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of cards by session" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="n15-Sn-K2K">
+                                <rect key="frame" x="20" y="20" width="672" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="lqo-66-LVx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOa-DN-j2D">
+                                <rect key="frame" x="20" y="67" width="672" height="67"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vis-jx-oWf" customClass="MyButton" customModule="VocMemory" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="153" height="67"/>
+                                        <state key="normal" title="5"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeNumberCardButtonTapped:" destination="MhZ-13-sBh" eventType="touchUpInside" id="hmR-1c-ERJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAc-7G-ERt" customClass="MyButton" customModule="VocMemory" customModuleProvider="target">
+                                        <rect key="frame" x="173" y="0.0" width="153" height="67"/>
+                                        <state key="normal" title="10"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeNumberCardButtonTapped:" destination="MhZ-13-sBh" eventType="touchUpInside" id="Jut-z7-G3I"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xSg-gT-vLp" customClass="MyButton" customModule="VocMemory" customModuleProvider="target">
+                                        <rect key="frame" x="346" y="0.0" width="153" height="67"/>
+                                        <state key="normal" title="20"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeNumberCardButtonTapped:" destination="MhZ-13-sBh" eventType="touchUpInside" id="iom-e9-uZ7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1YS-sY-zYm" customClass="MyButton" customModule="VocMemory" customModuleProvider="target">
+                                        <rect key="frame" x="519" y="0.0" width="153" height="67"/>
+                                        <state key="normal" title="50"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="changeNumberCardButtonTapped:" destination="MhZ-13-sBh" eventType="touchUpInside" id="NbU-WL-QH6"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="iAc-7G-ERt" secondAttribute="bottom" id="0Zk-we-qYc"/>
+                                    <constraint firstItem="1YS-sY-zYm" firstAttribute="width" secondItem="xSg-gT-vLp" secondAttribute="width" id="6z4-mB-OQG"/>
+                                    <constraint firstAttribute="trailing" secondItem="1YS-sY-zYm" secondAttribute="trailing" id="EiB-4K-WnX"/>
+                                    <constraint firstItem="1YS-sY-zYm" firstAttribute="leading" secondItem="xSg-gT-vLp" secondAttribute="trailing" constant="20" id="J7q-ta-bp0"/>
+                                    <constraint firstAttribute="width" secondItem="Vis-jx-oWf" secondAttribute="height" multiplier="10:1" id="MQH-O0-Crn"/>
+                                    <constraint firstAttribute="bottom" secondItem="Vis-jx-oWf" secondAttribute="bottom" id="Qoo-WF-snn"/>
+                                    <constraint firstItem="xSg-gT-vLp" firstAttribute="leading" secondItem="iAc-7G-ERt" secondAttribute="trailing" constant="20" id="Ryp-gS-SXY"/>
+                                    <constraint firstAttribute="bottom" secondItem="1YS-sY-zYm" secondAttribute="bottom" id="Un1-ED-iJ8"/>
+                                    <constraint firstItem="xSg-gT-vLp" firstAttribute="top" secondItem="hOa-DN-j2D" secondAttribute="top" id="WOy-jI-a12"/>
+                                    <constraint firstItem="iAc-7G-ERt" firstAttribute="leading" secondItem="Vis-jx-oWf" secondAttribute="trailing" constant="20" id="aab-3g-cR5"/>
+                                    <constraint firstItem="1YS-sY-zYm" firstAttribute="top" secondItem="hOa-DN-j2D" secondAttribute="top" id="bWv-Oj-lYE"/>
+                                    <constraint firstItem="Vis-jx-oWf" firstAttribute="leading" secondItem="hOa-DN-j2D" secondAttribute="leading" id="d4R-Sl-hRY"/>
+                                    <constraint firstItem="iAc-7G-ERt" firstAttribute="top" secondItem="hOa-DN-j2D" secondAttribute="top" id="dM8-BB-bNu"/>
+                                    <constraint firstAttribute="bottom" secondItem="xSg-gT-vLp" secondAttribute="bottom" id="eny-W1-0H7"/>
+                                    <constraint firstItem="Vis-jx-oWf" firstAttribute="top" secondItem="hOa-DN-j2D" secondAttribute="top" id="ggQ-68-RkE"/>
+                                    <constraint firstItem="1YS-sY-zYm" firstAttribute="width" secondItem="Vis-jx-oWf" secondAttribute="width" id="knR-Ty-Vau"/>
+                                    <constraint firstItem="1YS-sY-zYm" firstAttribute="width" secondItem="iAc-7G-ERt" secondAttribute="width" id="tEQ-Gu-ivV"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HD3-lt-vqF" customClass="MyButton" customModule="VocMemory" customModuleProvider="target">
+                                <rect key="frame" x="20" y="154" width="672" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2Ya-jQ-PHf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="resetButtonTapped:" destination="MhZ-13-sBh" eventType="touchUpInside" id="ThU-gJ-QV4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="n15-Sn-K2K" firstAttribute="leading" secondItem="NPl-nC-EWS" secondAttribute="leading" constant="20" id="Db8-1e-mx0"/>
+                            <constraint firstItem="hOa-DN-j2D" firstAttribute="top" secondItem="n15-Sn-K2K" secondAttribute="bottom" constant="20" id="EGZ-xf-dIr"/>
+                            <constraint firstItem="HD3-lt-vqF" firstAttribute="leading" secondItem="NPl-nC-EWS" secondAttribute="leading" constant="20" id="J37-pG-WAJ"/>
+                            <constraint firstItem="NPl-nC-EWS" firstAttribute="trailing" secondItem="n15-Sn-K2K" secondAttribute="trailing" constant="20" id="NmI-1L-wfM"/>
+                            <constraint firstItem="HD3-lt-vqF" firstAttribute="top" secondItem="hOa-DN-j2D" secondAttribute="bottom" constant="20" id="Uts-pU-nAI"/>
+                            <constraint firstItem="hOa-DN-j2D" firstAttribute="leading" secondItem="NPl-nC-EWS" secondAttribute="leading" constant="20" id="ZLO-Gg-upN"/>
+                            <constraint firstItem="NPl-nC-EWS" firstAttribute="trailing" secondItem="hOa-DN-j2D" secondAttribute="trailing" constant="20" id="cBq-BH-sRZ"/>
+                            <constraint firstItem="n15-Sn-K2K" firstAttribute="top" secondItem="NPl-nC-EWS" secondAttribute="top" constant="20" id="fja-Et-kIL"/>
+                            <constraint firstItem="NPl-nC-EWS" firstAttribute="trailing" secondItem="HD3-lt-vqF" secondAttribute="trailing" constant="20" id="isg-zF-3yU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NPl-nC-EWS"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1sd-pz-Th5"/>
+                    <connections>
+                        <outlet property="fiftyButton" destination="1YS-sY-zYm" id="y3k-YH-1ja"/>
+                        <outlet property="fiveButton" destination="Vis-jx-oWf" id="NNz-RF-vaX"/>
+                        <outlet property="tenButton" destination="iAc-7G-ERt" id="kwf-Ue-evw"/>
+                        <outlet property="twentyButton" destination="xSg-gT-vLp" id="37q-CD-oMa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dUG-jE-IBO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="371" y="1193"/>
+        </scene>
         <!--Test Word View Controller-->
         <scene sceneID="hYA-5W-Ktu">
             <objects>
                 <viewController id="pnx-0j-92o" customClass="TestWordViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyU-fh-yEf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="LzC-Lz-NBf"/>
@@ -267,18 +432,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O41-Ta-aH5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1561" y="852"/>
+            <point key="canvasLocation" x="1560.4316546762591" y="851.97841726618708"/>
         </scene>
         <!--New Card-->
         <scene sceneID="GTU-KC-722">
             <objects>
                 <viewController id="t9E-GO-cKn" customClass="AddWordViewController" customModule="VocMemory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4yp-JP-hRS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LPA-2W-FF4">
-                                <rect key="frame" x="20" y="108" width="374" height="32"/>
+                                <rect key="frame" x="20" y="70" width="984" height="32"/>
                                 <segments>
                                     <segment title="Front"/>
                                     <segment title="Back"/>
@@ -288,7 +453,7 @@
                                 </connections>
                             </segmentedControl>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QnB-Ke-fZh">
-                                <rect key="frame" x="20" y="159" width="374" height="683"/>
+                                <rect key="frame" x="20" y="121" width="984" height="1205"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -336,7 +501,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qw9-vO-oT5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9AT-Ls-kk0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -351,6 +516,7 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="56" height="64"/>
+        <image name="gear" catalog="system" width="64" height="58"/>
         <image name="play" catalog="system" width="60" height="64"/>
     </resources>
 </document>

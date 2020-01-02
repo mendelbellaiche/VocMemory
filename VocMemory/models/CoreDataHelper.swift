@@ -62,6 +62,25 @@ class CoreDataHelper {
         }
     }
     
+    func deleteAllGroup(completionHandler: (_ error: Error?) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Group>(entityName: "Group")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results
+            {
+                managedContext.delete(managedObject)
+            }
+            try managedContext.save()
+            completionHandler(nil)
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
     func createWord(group: Group, id: UUID, front: String, back: String, favori: Bool, completionHandler: (_ result: Word, _ error: Error?) -> Void) {
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
@@ -108,7 +127,6 @@ class CoreDataHelper {
         return nil
     }
     
-    // #TODO: Incomplete implementation update word
     func updateWord(id: UUID, front: String, back: String, favori: Bool, lastDate: Date,  completionHandler: (_ word: Word, _ error: Error?) -> Void) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -196,6 +214,25 @@ class CoreDataHelper {
             try managedContext.save()
             completionHandler(nil)
         } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deleteAllWord(completionHandler: (_ error: Error?) -> Void) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Word>(entityName: "Word")
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        do {
+            let results = try managedContext.fetch(fetchRequest)
+            for managedObject in results
+            {
+                managedContext.delete(managedObject)
+            }
+            try managedContext.save()
+            completionHandler(nil)
+        } catch let error as NSError {
             print(error.localizedDescription)
         }
     }

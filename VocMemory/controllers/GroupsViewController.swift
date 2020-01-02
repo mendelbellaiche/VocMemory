@@ -10,6 +10,11 @@ import UIKit
 import Toast_Swift
 
 let GROUP_SEGUE_ID = "groupSegue"
+let PARAMS_SEGUE_ID = "paramsSegue"
+
+protocol GroupDelegate : class {
+    func resetArray()
+}
 
 class GroupsViewController: UIViewController {
 
@@ -39,10 +44,18 @@ class GroupsViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? WordsViewController {
-            let group = sender as? Group
-            destination.setup(group: group!)
+        
+        if segue.identifier == GROUP_SEGUE_ID {
+            if let vc = segue.destination as? WordsViewController {
+                let group = sender as? Group
+                vc.setup(group: group!)
+            }
+        } else if segue.identifier == PARAMS_SEGUE_ID {
+            if let vc = segue.destination as? ParametersViewController {
+                vc.delegate = self
+            }
         }
+        
     }
     
     // MARK: - Buttons Action methods
@@ -79,6 +92,11 @@ class GroupsViewController: UIViewController {
         addGroupPopUp.addAction(cancelAction)
         self.present(addGroupPopUp, animated: true, completion: nil)
     }
+    
+    @IBAction func paramsButtonTapped(_ sender: UIBarButtonItem) {
+        self.performSegue(withIdentifier: PARAMS_SEGUE_ID, sender: self)
+    }
+    
     
 }
 
@@ -122,4 +140,15 @@ extension GroupsViewController: UITableViewDelegate, UITableViewDataSource {
         self.performSegue(withIdentifier: GROUP_SEGUE_ID, sender: self.groups![indexPath.row])
         
     }
+}
+
+// MARK: - GroupDelegate protocol methods
+
+extension GroupsViewController: GroupDelegate {
+    
+    func resetArray() {
+        self.groups?.removeAll()
+        self.groupsTV.reloadData()
+    }
+    
 }

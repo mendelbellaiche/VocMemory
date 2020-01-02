@@ -14,6 +14,14 @@ let EDIT_WORD_SEGUE_ID = "editWordSegue"
 let TEST_WORD_SEGUE_ID = "testWordSegue"
 let WORD_CELL = "wordCell"
 
+protocol WordDelegate : class {
+    
+    func addArray(with word: Word)
+    func removeArray(with word: Word)
+    func updateArray(with id: UUID, front: String, back: String, favori: Bool, lastDate: Date)
+    
+}
+
 class WordsViewController: UIViewController {
 
     var group: Group!
@@ -134,5 +142,5 @@ extension WordsViewController: WordDelegate {
         self.wordsCollectionView.reloadData()
         
     }
-    
+
 }

@@ -17,13 +17,6 @@ enum Memorisation {
     case neutral
 }
 
-protocol WordDelegate : class {
-    
-    func addArray(with word: Word)
-    func removeArray(with word: Word)
-    func updateArray(with id: UUID, front: String, back: String, favori: Bool, lastDate: Date)
-}
-
 class AddWordViewController: UIViewController {
 
     @IBOutlet weak var favoriButton: UIBarButtonItem!
