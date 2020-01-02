@@ -19,9 +19,7 @@ class ParametersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let nbCard = UserDefaults.standard.integer(forKey: "NUMBER_CARD")
-        
         switch nbCard {
             case 5:
                 selectButton(self.fiveButton)
@@ -34,12 +32,10 @@ class ParametersViewController: UIViewController {
             default:
                 selectButton(self.fiveButton)
         }
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        
     }
     
     func initUI() {
@@ -62,10 +58,7 @@ class ParametersViewController: UIViewController {
     @IBAction func changeNumberCardButtonTapped(_ sender: UIButton) {
         initUI()
         selectButton(sender)
-        
-        let intLabel = Int(sender.titleLabel!.text!)
-        UserDefaults.standard.set(intLabel, forKey: "NUMBER_CARD")
-        
+        UserDefaults.standard.set(Int(sender.titleLabel!.text!), forKey: "NUMBER_CARD")
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
@@ -81,9 +74,7 @@ class ParametersViewController: UIViewController {
                 CoreDataHelper.shared.deleteAllGroup() { error in
                     if error != nil { return }
                     self.delegate?.resetArray()
-                    
                     UserDefaults.standard.set(5, forKey: "NUMBER_CARD")
-                    
                     ToastUtils.shared.displayMessage(view: self,
                                                      message: "Reset successfully !",
                                                      duration: 3.0,
@@ -93,22 +84,9 @@ class ParametersViewController: UIViewController {
             
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
         resetAlertview.addAction(okAction)
         resetAlertview.addAction(cancelAction)
-        
         self.present(resetAlertview, animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
