@@ -62,9 +62,9 @@ class ParametersViewController: UIViewController {
     }
     
     @IBAction func resetButtonTapped(_ sender: UIButton) {
-        let resetAlertview = UIAlertController(title: "Reset", message: "Are you sure to reset data?", preferredStyle: .alert)
+        let resetAlertview = UIAlertController(title: "Reset", message: "Are you sure to reset the application?", preferredStyle: .alert)
         
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: { alert in
+        let okAction = UIAlertAction(title: "Reset", style: .destructive, handler: { alert in
             self.initUI()
             self.selectButton(self.fiveButton)
             
